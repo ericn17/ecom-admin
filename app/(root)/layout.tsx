@@ -16,11 +16,11 @@ export default async function SetupLayout({
 
     const store = await prismadb.store.findFirst({
         where: {
-            userId
+            userId,
         }
     });
 
-    if (!store) {
+    if (store) {
         redirect (`/${store.id}`);
     }
 
@@ -30,3 +30,4 @@ export default async function SetupLayout({
         </>
     );
 };
+
